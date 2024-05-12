@@ -5,6 +5,7 @@ include config.mk
 
 SRC = drw.c dmenu.c stest.c util.c
 OBJ = $(SRC:.c=.o)
+CACHE = ${HOME}/.cache/dmenu_run
 
 all: dmenu stest
 
@@ -23,7 +24,7 @@ stest: stest.o
 	$(CC) -o $@ stest.o $(LDFLAGS)
 
 clean:
-	rm -f dmenu stest $(OBJ) dmenu-$(VERSION).tar.gz
+	rm -f dmenu stest $(OBJ) dmenu-$(VERSION).tar.gz $(CACHE)
 
 dist: clean
 	mkdir -p dmenu-$(VERSION)
